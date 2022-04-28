@@ -26,6 +26,9 @@ class Game
             puts "Bienvenue  #{player1.name} et #{player2.name}! "
 
             puts "#{player1.name}  jouera avec les  #{player1.value} et #{player2.name} jouera avec les #{player2.value}."
+            puts " "
+            puts "Voici un plateau de jeu vide en exemple :"
+            puts " "
             
             @board = Board.new
             
@@ -48,7 +51,7 @@ class Game
                 else
                   break
                 end
-                puts @board.display_board
+                #puts @board.display_board
             end
                 if @board.victory? == true
                     switch_player
