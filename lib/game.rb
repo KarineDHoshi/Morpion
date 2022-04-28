@@ -9,9 +9,12 @@ class Game
             
             @players = []
 
+            puts " "
             puts "Gamer 1, comment tu t'appelles ?"
             
             player_name = gets.chomp
+            puts " "
+
             @player1 = Player.new(player_name, "X")
             @players << @player1
             @player1.value = "X"
@@ -19,12 +22,15 @@ class Game
             puts "Gamer 2, comment tu t'appelles ?"
 
             player_name = gets.chomp
+            puts " "
             @player2 = Player.new(player_name, "O")
             @players << @player2
             @player2.value = "O"
+
+            system('clear')
             
             puts "Bienvenue  #{player1.name} et #{player2.name}! "
-
+            puts " "
             puts "#{player1.name}  jouera avec les  #{player1.value} et #{player2.name} jouera avec les #{player2.value}."
             puts " "
             puts "Voici un plateau de jeu vide en exemple :"
@@ -40,6 +46,7 @@ class Game
             else
               @current_player = @player1
             end
+            system('clear')
           end
         
           def turn
@@ -54,8 +61,8 @@ class Game
                 #puts @board.display_board
             end
                 if @board.victory? == true
-                    switch_player
-                    puts "#{@current_player.name} gagne !"
+                    puts "    #{@current_player.name} gagne !"
+                    puts " "
                         else
                         puts "EGALITE"
                     end
