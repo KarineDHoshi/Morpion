@@ -19,6 +19,13 @@ class Board
     puts "Quelle case veux-tu jouer #{player.name} ? "
     print ">"
     case_number = gets.chomp.to_i
+      unless case_number <= 9
+        puts "Il me faut un nombre entre 1 et 9 ! Recommence !"
+        puts "Quelle case veux-tu jouer #{player.name} ? "
+        print ">"
+        case_number = gets.chomp.to_i 
+      end      
+         
       if @board[(case_number-1)] == "."
         @board[(case_number-1)] = player.value
       else
@@ -39,14 +46,7 @@ class Board
    end
    
    def victory?
-    if  @board[0] == @board[1] && @board[0] == @board[2] && @board[0] != "."  ||
-        @board[3] == @board[4] && @board[3] == @board[5] && @board[3] != "."  || 
-        @board[6] == @board[7] && @board[6] == @board[8] && @board[6] != "."  || 
-        @board[0] == @board[3] && @board[0] == @board[6] && @board[0] != "."  || 
-        @board[1] == @board[4] && @board[1] == @board[7] && @board[1] != "."  || 
-        @board[2] == @board[5] && @board[2] == @board[8] && @board[2] != "."  || 
-        @board[0] == @board[4] && @board[0] == @board[8] && @board[0] != "."  || 
-        @board[2] == @board[4] && @board[2] == @board[6] && @board[2] != "." 
+    if @board[0] == @board[1] && @board[0] == @board[2] && @board[0] != "."  || @board[3] == @board[4] && @board[3] == @board[5] && @board[3] != "."  || @board[6] == @board[7] && @board[6] == @board[8] && @board[6] != "."  || @board[0] == @board[3] && @board[0] == @board[6] && @board[0] != "."  || @board[1] == @board[4] && @board[1] == @board[7] && @board[1] != "."  || @board[2] == @board[5] && @board[2] == @board[8] && @board[2] != "."  || @board[0] == @board[4] && @board[0] == @board[8] && @board[0] != "."  || @board[2] == @board[4] && @board[2] == @board[6] && @board[2] != "." 
       return true
     else
       return false
